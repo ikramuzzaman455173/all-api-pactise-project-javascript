@@ -14,9 +14,9 @@ function getElementId(getId) {
 }
 
 // This function use For Call Api
-const callMealApi=async(searchText,dataLimit)=>{
-  const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`
-    try {
+const callMealApi = async (searchText, dataLimit) => {
+  try {
+      const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`
       const res = await fetch(url)
       const data =await res.json()
       console.log(data)
@@ -66,7 +66,9 @@ const displayData = (meals,dataLimit) => {
 // function Data Process
 const dataProcess = (dataLimit) => {
   const searchFieldValue = searchField.value
-  callMealApi(searchFieldValue,dataLimit)
+  console.log(searchFieldValue)
+
+  callMealApi(searchFieldValue, dataLimit)
   searchField.value = ''
 }
 // search btn
@@ -117,3 +119,9 @@ const detailsShowWithModal = (meal) => {
 
 // call functiton callMealApi
 callMealApi('')
+
+// if (!searchField.value) {
+//   wrongMsgShow.classList.remove('d-none')
+//   showDetalisMeals.innerHTML = ''
+//   return
+// }
